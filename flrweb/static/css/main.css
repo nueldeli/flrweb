@@ -1,0 +1,154 @@
+/* Global */
+
+/* meedia query */
+
+@media screen and (max-width: 600px){
+	.custom-div {
+		margin: auto;
+		width: 80%;
+	}
+}
+
+@media screen and (min-width: 600px){
+	.custom-div {
+		margin: auto;
+		width: 50%;
+	}
+}
+
+/* End media */
+
+body {
+	font-family: 'Work Sans', Sans-Serif;
+	font-size: 18px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Merriweather', Serif;
+}
+
+nav {
+	color: #fff;
+	font-size: 20px;
+}
+
+nav a {
+	color: #fff;
+}
+
+nav a:hover {
+	color: #ff6600;
+}
+
+footer a {
+	color: #fff;
+}
+
+footer a:hover {
+	color: #ff6600;
+	text-decoration: none;
+}
+
+
+/* End Global */
+
+.navbar-custom {
+	background-color: #000;
+}
+
+.navbar-logo-img {
+	width: 200px;
+}
+
+.navbar-toggler {
+	border-color: rgba(255,255,255, .9);
+}
+
+.hero-image {
+	display: flex;
+	flex-direction: column;
+	background-image: url('/static/img/showcase.png');
+	align-self: center;
+	height: 100%;
+	min-height: 30em;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	align-items: center;
+	justify-content: center;
+}
+
+.hero-text {
+	width: 300px;
+	height: 400px;
+	text-align: left;
+	color: #fff;
+}
+
+.hero-header {
+	font-family: 'Merriweather', serif;
+	font-weight: bold;
+	align-self: center;
+	font-size: 50px;
+	line-height: 1em;
+
+}
+
+.hero-content {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 20px;
+}
+
+.btn-custom {
+	background-color: #ff6600;
+	color: #fff;
+}
+
+.btn-custom:hover {
+	background-color: #ffa500;
+}
+
+.explore-data-1 {
+	position: relative;
+	text-align: center;
+}
+
+.explore-data-2 {
+	position: absolute;
+	color: #fff;
+	left: 10px;
+	bottom: 50%;
+	font-size: 20px;
+}
+
+.img-logo-box {
+	align-self: center;
+	margin: 0 10px;
+}
+
+.page-footer {
+	background-color: #064f40;
+	color: #fff;
+	font-size: 14px;
+}
+
+.fa-phone {
+	font-size: 20px;
+}
+
+.fa-globe {
+	font-size: 20px;
+}
+
+.fa-facebook {
+	font-size: 40px;
+}
+
+.fa-instagram {
+	font-size: 40px;
+}
+
+.footer-copyright {
+	background-color: #000;
+}
+

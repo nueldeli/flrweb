@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="custom-div vh-100 mt-4">
+	<h5>Join our newsletter</h5>
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button class="btn btn-custom" >Subscribe</button>
+	</form>
+</div>
+{% endblock %}
