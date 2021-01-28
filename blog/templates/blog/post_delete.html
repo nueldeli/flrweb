@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<div class="custom-div mt-4 mb-4">
+		<h3>Deleting {{ post.title }}</h3>
+		<div class="form-group">
+			<form method="POST">
+				{% csrf_token %}
+				<p>Are you sure?</p>
+				<button class="btn btn-danger">Delete</button>
+			</form>
+			<br>
+			<a class="btn btn-custom" href="{{ post.get_absolute_url }}">Cancel</a>
+		</div>
+	</div>
+
+{% endblock %}

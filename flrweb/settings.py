@@ -32,6 +32,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Blog app
+    'blog.apps.BlogConfig',
+    # ---
+    # Ckeditor app
+    'ckeditor',
+    'ckeditor_uploader',
+    #---
     # Subscription app
     'subscription.apps.SubscriptionConfig',
     # ---
@@ -123,5 +130,10 @@ USE_TZ = True
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'flrweb/static')] 
 STATIC_URL = '/static/'
+
+# Media Stuff
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'flrweb/media')
+MEDIA_URL = '/media/'
 
 

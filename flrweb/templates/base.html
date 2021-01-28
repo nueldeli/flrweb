@@ -38,7 +38,7 @@
 					<a class="nav-link" href="#">Organization</a>
 				</li>
 				<li>
-					<a class="nav-link" href="#">Blog</a>
+					<a class="nav-link" href="{% url 'post_index' %}">Blog</a>
 				</li>
 				<li>
 					<a class="nav-link" href="#">Data</a>
@@ -59,10 +59,12 @@
 	</nav>
 
 	<!-- Success subscription message -->
-
-	{% block content %}
-		<!-- Child content goes here -->
-	{% endblock %}
+	<div class="min-vh-100">
+		{% block content %}
+			<!-- Child content goes here -->
+		{% endblock %}
+		<br>
+	</div>
 
 	<!-- Footer -->
 	<footer class="page-footer font-small">

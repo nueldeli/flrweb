@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="custom-div text-content mt-4 mb-4">
+		<h1>{{ post.title }}</h1>
+		<small>{{ post.author.first_name }} {{ post.author.last_name }}</small>
+		<small>{{ post.date_written.date }}</small>
+		<p>{{ post.content | safe }}</p>
+		{% if user.is_authenticated %}
+			{% if user.id == post.author.id %}
+				<div class="row">
+					<div class="col">
+						<a href="{% url 'post_update' post.pk %}">
+							<button class="btn btn-primary">Edit Post</button>
+						</a>
+					</div>
+					<div class="col">
+						<a href="{% url 'post_delete' post.pk %}">
+							<button class="btn btn-danger">Delete</button>
+						</a>
+					</div>
+				</div>
+			{% endif %}
+		{% endif %}
+	</div>
+{% endblock %}
