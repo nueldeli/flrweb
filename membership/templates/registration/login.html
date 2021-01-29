@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<div class="custom-div mt-4 text-center border rounded shadow p-4">
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button class="btn btn-custom">Login</button>
+	</form>
+</div>
+
+{% endblock %}

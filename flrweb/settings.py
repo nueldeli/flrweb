@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     # Subscription app
     'subscription.apps.SubscriptionConfig',
     # ---
+    # Membership app
+    'membership.apps.MembershipConfig',
+    # ---
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -135,5 +138,9 @@ STATIC_URL = '/static/'
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'flrweb/media')
 MEDIA_URL = '/media/'
+
+# Login and logout stuff
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 

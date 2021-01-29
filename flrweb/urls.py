@@ -23,6 +23,8 @@ urlpatterns = [
 	path('', views.home, name='home'),
     path('blog/', include('blog.urls')),
     path('ckeditor', include('ckeditor_uploader.urls')),
+    path('membership/', include('django.contrib.auth.urls')),
+    path('membership/', include('membership.urls')),
 	path('', include('subscription.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
