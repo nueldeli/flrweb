@@ -15,12 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import views
+from .views import HomeView, AboutView, OrganizationView
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-	path('', views.home, name='home'),
+	path('', HomeView.as_view(), name='home'),
+    path('about/', AboutView.as_view(), name='about'),
+    path('organization/', OrganizationView.as_view(), name='organization'),
     path('blog/', include('blog.urls')),
     path('ckeditor', include('ckeditor_uploader.urls')),
     path('membership/', include('django.contrib.auth.urls')),
