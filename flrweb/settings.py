@@ -35,6 +35,9 @@ INSTALLED_APPS = [
     # Blog app
     'blog.apps.BlogConfig',
     # ---
+    # Data management system (DMS)
+    'dms.apps.DmsConfig',
+    # ---
     # Ckeditor app
     'ckeditor',
     'ckeditor_uploader',
