@@ -1,5 +1,48 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h3>Seedling index works</h3>
+<div class="container mt-4">
+	<h4 class="text-center">Seedling Index</h4>
+
+	{% if user.is_authenticated %}
+		{% if user.is_staff %}
+			<div class="text-center">
+				<a href="{% url 'seedling_add' %}">
+					<button class="btn btn-custom">Add seedling</button>
+				</a>
+			</div>
+		{% endif %}
+	{% endif %}
+
+	<table class="table mt-4">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Local name</th>
+				<th scope="col">Scientific name</th>
+				<th scope="col">Category</th>
+				<th scope="col">Origin</th>
+				<th scope="col">Nursery</th>
+				<th scope="col">Quantity</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for data in object_list %}
+			<tr>
+				<th>{{ forloop.counter }}</th>
+				<td>
+					<a href="{% url 'seedling_detail' data.pk %}">
+						{{ data.local_name }}
+					</a>
+				</td>
+				<td>{{ data.scientific_name }}</td>
+				<td>{{ data.category }}</td>
+				<td>{{ data.origin }}</td>
+				<td>{{ data.nursery }}</td>
+				<td>{{ data.quantity }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
 {% endblock %}

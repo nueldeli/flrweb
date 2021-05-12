@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h3>Seedling delete works</h3>
+<div class="custom-div border rounded shadow mt-4 p-4">
+	<p><strong>Delete {{ object.local_name }}</strong></p>
+	<form method="POST">
+		{% csrf_token %}
+		<p>Are you sure?</p>
+		<button class="btn btn-danger">Delete</button>
+	</form>
+</div>
 {% endblock %}

@@ -24,7 +24,7 @@ class Seedling(models.Model):
 	def get_seedling_img(self):
 		if self.seedling_img and hasattr(self.seedling_img, 'url'):
 			return self.seedling_img.url 
-		return ImageFieldFile(instance=None, field=FileField, name='/media/seedling_img/seedling_default_img.png')
+		return ImageFieldFile(instance=None, field=FileField(), name='/media/seedling_img/seedling_default_img.png')
 
 	def get_absolute_url(self):
 		return reverse('seedling_index')

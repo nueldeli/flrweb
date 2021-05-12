@@ -1,5 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h3>Seedling detail works</h3>
+<div class="custom-div border shadow rounded mt-4 p-4">
+	<h5>{{ object.local_name }}</h5>
+	<p><i>{{ object.scientific_name }}</i></p>
+	<img class="w-100" src="{{ object.get_seedling_img }}">
+	
+	<p class="mt-4">Nursery: {{ object.nursery }}</p>
+	<p>Origin: {{ object.origin }}</p>
+	<p>Category: {{ object.category }}</p>
+	<p>Quantity: {{ object.quantity }}</p>
+	<p>Description: {{ object.description }}</p>
+	<p>Remarks: {{ object.remarks }}</p>
+
+	{% if user.is_authenticated %}
+		{% if user.is_staff %}
+			<div class="row text-center">
+				<div class="col-sm-4 mb-2">
+					<a href="{% url 'seedling_update' object.pk %}">
+						<button class="btn btn-custom">Update</button>
+					</a>
+				</div>
+				<div class="col-sm-4 mb-2">
+					<a href="{% url 'seedling_delete' object.pk %}">
+						<button class="btn btn-danger">Delete</button>
+					</a>
+				</div>
+				<div class="col-sm-4">
+					<a href="{% url 'seedling_index' %}">
+						<button class="btn btn-primary">Back</button>
+					</a>
+				</div>
+			</div>
+		{% endif %}
+	{% endif %}
+</div>
 {% endblock %}

@@ -1,5 +1,82 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h3>Seedling overview works</h3>
+<div class="custom-div mt-4">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+	<div class="border shadow rounded mb-4 p-4">
+		<h3 class="text-center">Seedling overview</h3>
+		<small class="text-muted">Data is important for us to track progress of seedlings. There are 3 main nurseries designed for cultivation of seedlings. Every data will be collected from these nurseries for analysis and reference. </small>
+		<ul class="list-unstyled text-center mt-2">
+			<li>Total species: {{ cumulative_species }}</li>
+			<li>Total quantity: {{ cumulative_quantity }}</li>
+		</ul>
+		<canvas id="seedlingChart"></canvas>
+
+		<hr>
+
+		<div class="row text-center">
+			<div class="col-sm-4 mb-2">
+				<a href="#">
+					<button class="btn btn-custom">Sabal FLR Centre</button>
+				</a>
+			</div>
+			<div class="col-sm-4 mb-2">
+				<a href="#">
+					<button class="btn btn-custom">Niah FRS</button>
+				</a>
+			</div>
+			<div class="col-sm-4 mb-2">
+				<a href="#">
+					<button class="btn btn-custom">IFRC Semengoh</button>
+				</a>
+			</div>
+		</div>
+
+		<hr>
+
+		<a href="{% url 'seedling_index' %}">
+			<button class="col btn btn-custom">View all seedlings</button>
+		</a>
+	</div>
+
+	<script >
+  
+	  	var ctx = document.getElementById('seedlingChart').getContext('2d');
+	  	var myChart = new Chart(ctx, {
+	      	type: 'bar',
+	      	data: {
+	          	labels: [{% for i in label %}'{{ i }}',{% endfor %}],
+	          	datasets: [{
+	              	label: 'Number of species',
+	              	data: [{% for i in data %}'{{ i }}',{% endfor %}],
+	              	backgroundColor: [
+	                  'rgba(228,27,199,1)',
+	                  'rgba(199,228,27,1)',
+	                  'rgba(27,199,228,1)',
+	              	],
+	              	borderColor: [
+	                  'rgba(255, 99, 132, 0)',
+	                  'rgba(54, 162, 235, 0)',
+	                  'rgba(255, 206, 86, 0)',
+	              	],
+	              	borderWidth: 1
+	          	}]
+	      	},
+	      	options: {
+	          	scales: {
+	              	yAxes: [{
+	                  	ticks: {
+	                      	beginAtZero: true
+	                  	}
+	              	}],
+	              	xAxes: [{
+	                  	barPercentage: 0.3
+	              	}]
+	          	}
+	      	}
+	 	 });
+
+	</script>
+</div>
 {% endblock %}
