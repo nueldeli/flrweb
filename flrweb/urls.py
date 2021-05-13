@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import HomeView, AboutView, OrganizationView
+from .views import HomeView, AboutView, OrganizationView, WdimView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -23,6 +23,7 @@ urlpatterns = [
 	path('', HomeView.as_view(), name='home'),
     path('about/', AboutView.as_view(), name='about'),
     path('organization/', OrganizationView.as_view(), name='organization'),
+    path('why-does-it-matter/', WdimView.as_view(), name='wdim'),
     path('blog/', include('blog.urls')),
     path('data/', include('dms.urls')),
     path('ckeditor', include('ckeditor_uploader.urls')),

@@ -1,12 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="custom-div mt-4 border shadow rounded p-4">
-	<h4 class="text-center">Update seedling</h4>
-	<form method="POST">
-		{% csrf_token %}
-		{{ form.as_p }}
-		<button class="btn btn-custom">Update</button>
-	</form>
+
+{% if user.is_authenticated %}
+	{% if user.is_staff %}
+		<div class="custom-div mt-4 border shadow rounded p-4">
+			<h4 class="text-center">Update seedling</h4>
+			<form method="POST">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<button class="btn btn-custom">Update</button>
+			</form>
+		</div>
+	{% endif %}
+
+{% else %}
+<div class="custom-div">
+	<p>You are not authorized</p>
 </div>
+{% endif %}
 {% endblock %}

@@ -13,3 +13,6 @@ class AboutView(TemplateView):
 
 class OrganizationView(TemplateView):
 	template_name = 'organization.html'
+
+class WdimView(TemplateView):
+	template_name = 'wdim.html'
