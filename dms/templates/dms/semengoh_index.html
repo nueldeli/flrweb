@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+	<h4 class="text-center">IFRC Semengoh Index</h4>
+
+	<table class="table mt-4">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Local name</th>
+				<th scope="col">Scientific name</th>
+				<th scope="col">Category</th>
+				<th scope="col">Origin</th>
+				<th scope="col">Nursery</th>
+				<th scope="col">Quantity</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for data in semengoh_nursery_index %}
+			<tr>
+				<th>{{ forloop.counter }}</th>
+				<td>
+					<a href="{% url 'seedling_detail' data.pk %}">
+						{{ data.local_name }}
+					</a>
+				</td>
+				<td>{{ data.scientific_name }}</td>
+				<td>{{ data.category }}</td>
+				<td>{{ data.origin }}</td>
+				<td>{{ data.nursery }}</td>
+				<td>{{ data.quantity }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}
