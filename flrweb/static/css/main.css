@@ -202,3 +202,10 @@ footer a:hover {
   animation: bounce 2s infinite;
 
 }
+
+.custom-line {
+	border: none;
+	height: 5px;
+	background-color: #d3d3d3;
+	width: 20%;
+}
