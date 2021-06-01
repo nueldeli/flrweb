@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="custom-div mt-4">
+	<div class="border shadow rounded p-4">
+		<h3>Planting program</h3>
+		<p>You can view all the planting programs that had been held throughout Sarawak.</p>
+		<a href="{% url 'planting_program_index' %}">
+			<button class="btn btn-custom">View programs</button>
+		</a>
+	</div>
+
+	<div class="border shadow rounded mt-4 p-4">
+		<h3>Join program</h3>
+		<p>You can participate in our planting programmes by register and selecting the species that you want.</p>
+		<a href="#">
+			<button class="btn btn-custom">Join program</button>
+		</a>
+	</div>
+</div>
+{% endblock %}

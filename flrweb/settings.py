@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     # Data management system (DMS)
     'dms.apps.DmsConfig',
     # ---
+    # Planting app
+    'planting.apps.PlantingConfig',
+    # ---
     # Ckeditor app
     'ckeditor',
     'ckeditor_uploader',

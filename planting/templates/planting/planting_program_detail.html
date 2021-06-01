@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="custom-div mt-4">
+	<h4>{{ object.program_name }}</h4>
+	<img class="w-100 mt-4" src="{{ object.get_program_img }}">
+	<ul class="list-unstyled mt-4">
+		<li>Date: {{ object.program_date }}</li>
+		<li>Location: {{ object.program_location }}</li>
+		<li>Area covered: {{ object.program_area }} ha</li>
+		<li>Species: {{ object.program_species }}</li>
+		<li>Participant(s): {{ object.program_participant }}</li>
+	</ul>
+	<div class="row">
+		<div class="col-6">
+			<a href="{% url 'planting_program_update' object.pk %}">
+				<button class="btn btn-primary">Update</button>
+			</a>
+		</div>
+		<div class="col-6">
+			<a href="{% url 'planting_program_delete' object.pk %}">
+				<button class="btn btn-danger">Delete</button>
+			</a>
+		</div>
+	</div>
+</div>
+{% endblock %}

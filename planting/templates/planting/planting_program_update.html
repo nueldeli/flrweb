@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="custom-div border rounded shadow p-4 mt-4">
+	<h5>Update {{ object.program_name }}</h5>
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button class="btn btn-primary">Update</button>
+	</form>
+</div>
+{% endblock %}

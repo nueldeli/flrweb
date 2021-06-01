@@ -26,6 +26,7 @@ urlpatterns = [
     path('why-does-it-matter/', WdimView.as_view(), name='wdim'),
     path('blog/', include('blog.urls')),
     path('data/', include('dms.urls')),
+    path('planting/', include('planting.urls')),
     path('ckeditor', include('ckeditor_uploader.urls')),
     path('membership/', include('django.contrib.auth.urls')),
     path('membership/', include('membership.urls')),
