@@ -9,7 +9,11 @@
 			<h1 class="hero-header">Towards Greener Generation</h1>
 			<p class="hero-content">Reforestation, restoring ecological functions and enhancing human well-being</p>
 			<br>
-			<input class="form-control" type="text" placeholder="Search" aria-label="Search">
+			<form class="d-flex" method="POST" action="{% url 'search' %}">
+				{% csrf_token %}
+				<input class="form-control" type="text" placeholder="What's on your mind?" aria-label="Search" name="searched">
+				<button class="btn btn-custom">Search</button>
+			</form>
 		</div>
 	</div>
 	<!-- End Showcase -->

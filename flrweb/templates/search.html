@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="custom-div mt-4">
+	{% if searched %}
+	<p><i>You search for {{ searched }}</i></p>
+		<h5>Blog</h5>
+		{% if posts %}
+			{% for post in posts %}
+				<a href="{{ post.get_absolute_url }}">
+					<p>{{ post.title }}</p>
+				</a>
+			{%  endfor %}
+		{% else %}
+			<p>No result</p>
+		{% endif %}
+		<hr>
+		<h5>Programs</h5>
+		{% if programs %}
+			{% for program in programs %}
+				<a href="{% url 'planting_program_detail' program.pk %}">
+					<p>{{ program.program_name }}</p>
+				</a>
+			{% endfor %}
+		{% else %}
+			<p>No result</p>
+		{% endif %}
+	{% else %}
+		<p>You forgot to search</p>
+	{% endif %}
+</div>
+{% endblock %}
