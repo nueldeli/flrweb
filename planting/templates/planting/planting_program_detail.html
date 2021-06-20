@@ -11,17 +11,21 @@
 		<li>Species: {{ object.program_species }}</li>
 		<li>Participant(s): {{ object.program_participant }}</li>
 	</ul>
-	<div class="row">
-		<div class="col-6">
-			<a href="{% url 'planting_program_update' object.pk %}">
-				<button class="btn btn-primary">Update</button>
-			</a>
-		</div>
-		<div class="col-6">
-			<a href="{% url 'planting_program_delete' object.pk %}">
-				<button class="btn btn-danger">Delete</button>
-			</a>
-		</div>
-	</div>
+	{% if user.is_authenticated %}
+		{% if user.is_staff %}
+			<div class="row">
+				<div class="col-6">
+					<a href="{% url 'planting_program_update' object.pk %}">
+						<button class="btn btn-primary">Update</button>
+					</a>
+				</div>
+				<div class="col-6">
+					<a href="{% url 'planting_program_delete' object.pk %}">
+						<button class="btn btn-danger">Delete</button>
+					</a>
+				</div>
+			</div>
+		{% endif %}
+	{% endif %}
 </div>
 {% endblock %}

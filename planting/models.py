@@ -26,3 +26,23 @@ class PlantingProgram(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('planting_program_index')
+
+class Item(models.Model):
+	date_presented = models.DateTimeField(auto_now_add=True)
+	item_local_name = models.CharField(max_length=100)
+	item_scientific_name = models.CharField(max_length=100)
+	item_img = models.ImageField('Item Image', null=True, blank=True, upload_to='item_img/')
+
+	class Meta:
+		ordering = ['-date_presented']
+
+	def __str__(self):
+		return self.item_local_name 
+
+	def get_item_img(self):
+		if self.item_img and hasattr(self.item_img, 'url'):
+			return self.item_img.url
+		return ImageFieldFile(instance=None, field=FileField(), name='/media/item_img/item_img_default.png')
+
+	def get_absolute_url(self):
+		return reverse('item_index')

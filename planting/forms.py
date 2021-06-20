@@ -1,5 +1,5 @@
 from django import forms
-from .models import PlantingProgram
+from .models import PlantingProgram, Item
 from django.utils.translation import gettext_lazy as _
 
 class AddPlantingProgram(forms.ModelForm):
@@ -52,4 +52,38 @@ class UpdatePlantingProgram(forms.ModelForm):
 			'program_species':_(''),
 			'program_participant':_(''),
 			'program_img':_(''),
+		}
+
+class AddItem(forms.ModelForm):
+	class Meta:
+		model = Item
+		fields = ('item_local_name', 'item_scientific_name', 'item_img')
+
+		widgets = {
+			'item_local_name':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Local name'}),
+			'item_scientific_name':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Scientific name'}),
+			'item_img':forms.FileInput()
+		}
+
+		labels = {
+			'item_local_name':_(''),
+			'item_scientific_name':_(''),
+			'item_img':_('')
+		}
+
+class UpdateItem(forms.ModelForm):
+	class Meta:
+		model = Item
+		fields = ('item_local_name', 'item_scientific_name', 'item_img')
+
+		widgets = {
+			'item_local_name':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Local name'}),
+			'item_scientific_name':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Scientific name'}),
+			'item_img':forms.FileInput()
+		}
+
+		labels = {
+			'item_local_name':_(''),
+			'item_scientific_name':_(''),
+			'item_img':_('')
 		}

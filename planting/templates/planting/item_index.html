@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="custom-div mt-4">
+	{% if user.is_authenticated and user.is_staff %}
+	<div class="text-center">
+		<a href="{% url 'item_add' %}">
+			<button class="btn btn-custom mb-4">Add item</button>
+		</a>
+	</div>
+	{% endif %}
+	<div class="row">
+		{% for item in object_list %}
+			<div class="col-sm-4 border shadow rounded p-2 m-2">
+				<img class="w-100" src="{{ item.get_item_img }}">
+				<ul class="list-unstyled mt-2">
+					<li>{{ item.item_local_name }}</li>
+					<li><i>{{ item.item_scientific_name }}</i></li>
+					<button class="btn btn-custom">Add</button>
+				</ul>
+				{% if user.is_authenticated and user.is_staff %}
+				<div class="row">
+					<div class="col-8">
+						<a href="{% url 'item_update' item.pk %}">
+							<small class="text-muted">Update</small>
+						</a>
+					</div>
+					<div class="col-4">
+						<a href="{% url 'item_delete' item.pk %}">
+							<small class="text-muted">Delete</small>
+						</a>
+					</div>
+				</div>
+				{% endif %}
+			</div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}

@@ -3,18 +3,18 @@
 {% block content %}
 {% if user.is_authenticated %}
 	{% if user.is_staff %}
-		<div class="custom-div border rounded shadow p-4 mt-4">
-			<h5>Update {{ object.program_name }}</h5>
+		<div class="custom-div mt-4 border shadow rounded p-4">
+			<h5>Update {{ item.item_local_name }}</h5>
 			<form method="POST">
 				{% csrf_token %}
 				{{ form.as_p }}
-				<button class="btn btn-primary">Update</button>
+				<button class="btn btn-custom">Submit</button>
 			</form>
 		</div>
 	{% endif %}
 {% else %}
-	<div class="custom-div">
-		<p>Page not found</p>
-	</div>
+<div class="custom-div">
+	<p>Page not found</p>
+</div>
 {% endif %}
 {% endblock %}

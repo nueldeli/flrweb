@@ -2,8 +2,8 @@
 
 {% block content %}
 {% if user.is_authenticated and user.is_staff %}
-<div class="custom-div border shadow rounded p-4 mt-4">
-	<p><strong>Delete {{ object.program_name }}</strong></p>
+<div class="custom-div border shadow rounded mt-4 p-4">
+	<p><strong>Delete {{ item.item_local_name }}</strong></p>
 	<form method="POST">
 		{% csrf_token %}
 		<p>Are you sure?</p>

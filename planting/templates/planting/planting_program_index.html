@@ -3,9 +3,13 @@
 {% block content %}
 <div class="custom-div mt-4">
 	<div class="text-center mb-4">
-		<a href="{% url 'planting_program_add' %}">
-			<button class="btn btn-custom">Add planting program</button>
-		</a>
+		{% if user.is_authenticated %}
+			{% if user.is_staff %}
+				<a href="{% url 'planting_program_add' %}">
+					<button class="btn btn-custom">Add planting program</button>
+				</a>
+			{% endif %}
+		{% endif %}
 	</div>
 	{% for program in object_list %}
 	<div class="row">
