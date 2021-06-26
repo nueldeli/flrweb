@@ -49,3 +49,4 @@ class ItemDelete(DeleteView):
 	model = Item
 	template_name = 'planting/item_delete.html'
 	success_url = reverse_lazy('item_index')
+
